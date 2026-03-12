@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFromPastes } from '../redux/pasteSlice';
 import toast from 'react-hot-toast';
-
+import { Link } from "react-router-dom";
 const Paste = () => {
   const pastes=useSelector((state)=>state.paste.pastes);
   const dispatch=useDispatch();
@@ -38,10 +38,10 @@ function handleShare(paste) {
             </div>
             <div className='flex flex-row place-content-evenly'>
                  <button  className='border-1 rounded-2xl p-2' >
-                  <a href={`/?pasteId=${paste?._id}`}>Edit</a>
+                  <Link to ={`/?pasteId=${paste?._id}`}>Edit</Link>
                  </button>
                   <button  className='border-1 rounded-2xl p-2'  >
-                  <a href={`/pastes/${paste?._id}`}>View</a>
+                 <Link to={`/pastes/${paste?._id}`}> View</Link>
                  </button>
                   <button  className='border-1 rounded-2xl p-2' onClick={()=>handleDelete(paste?._id)}>
                   Delete
